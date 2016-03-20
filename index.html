@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Simple Turn Counter </title>
+  <style>
+	* { font-family: FontAmazing; }
+    html, body 
+	{
+      height: 100%;
+      margin: 0;
+	  padding: 0;
+      width: 100%;
+	  background: url('https://c2.staticflickr.com/8/7503/16083572245_57a4d450a7_b.jpg') no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    body 
+	{
+     display: table;
+    }
+
+   .verticalalign
+    {
+     text-align: center;
+     display: table-cell;
+     vertical-align: middle;
+    }
+
+  </style>
+  <script>
+    var i = 1;
+	var t = 1;
+    function buttonClickadd() 
+	{
+		var total = parseInt(document.getElementById("TotalTurns").value);
+        document.getElementById('CurrentTurn').value = ++i;
+		document.getElementById("TotalTurns").value = ++t;
+		
+    }
+	
+	function buttonClickdeadd()
+	{
+		document.getElementById('CurrentTurn').value = --i;
+		
+	}
+	
+	function buttonClickreset()
+	{
+		document.getElementById('CurrentTurn').value = 1;
+		i= 1;
+	}
+	function decreasetotal()
+	{
+		document.getElementById('TotalTurns').value = --t;
+	}
+	function resettotal()
+	{
+		document.getElementById('TotalTurns').value = 1;
+		t=1;
+	}
+  </script>
+</head>
+
+<body>
+<div class="verticalalign">
+<center>
+ <form>
+  <fieldset style="width:30%; border:none">
+	<legend> Simple Turn Counter</legend>
+	<fieldset style="border-style:outset;">
+	<center><input type ="text" id="CurrentTurn" value="1"  style="width:30px; background:none; border:none;font-size:150%;"readonly></center>
+	</fieldset>
+	 <table>
+	<td><input type="Button" name="next" value="Next Turn" style="border:none" onclick="buttonClickadd()">
+	<td><input type="Button" name="previous" value="Previous Turn" style="border:none" onclick="buttonClickdeadd()">
+	<td><input type="button" name="clear" value="Reset" style="border:none" onclick="buttonClickreset()">
+	 </table>
+	 <br><br><br>
+	 <fieldset style="border-style:outset;">
+	 <table>
+	 <td><input type="text" value="Turns Counted:" style="width:160px; background:none; border:none;font-size:150%;" readonly>
+	 <td><input type="text" id="TotalTurns" value="1" style="width:30px; background:none; border:none;font-size:150%;" readonly>
+	 </table>
+	 </fieldset>
+	 <table>
+	 <td><input type="button" id="detotal" value="Decrease Total By 1" style="border:none" onclick="decreasetotal()">
+	 <td><input type="button" id="restotal" value="Reset Total" style="border:none" onclick="resettotal()">
+	 </table>
+  </fieldset>	
+ </form>
+</center>
+</div>
+</body>
+</html>
